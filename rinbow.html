@@ -229,9 +229,7 @@
     <div class="card-region"></div>
     <script>
         const btnCityRegion = document.querySelectorAll('.btn-city-region');
-        console.log(btnCityRegion);
         const checkBoxBtn = document.querySelectorAll('.checkbox-btn');
-        console.log(checkBoxBtn);
         let orgData = [];
         var CityAll =
             [
@@ -243,8 +241,7 @@
                 ['澎湖縣', '金門縣', '連江縣'],
             ]
         let nowCityAll = CityAll[0];
-
-        let url = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-2B26251C-AFF0-45F0-AD8D-7BC3069018BA'
+        let url = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWA-F90973FA-EC80-479F-95C8-AA521B09E106';
         // 異步處理資料(非同步＝等你做完我在去做，) 不等你做完就去做，平行執行 
         fetch(url)
             //不能有分號，因為會停止，就收不到資料
@@ -292,7 +289,6 @@
                 };
             });
             console.log(orgData);
-
             console.log('資料處理');
         }
         //用程式長div
