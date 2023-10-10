@@ -13,11 +13,6 @@
             font-weight: 500;
         }
 
-        /* img {
-            max-width: 100%;
-            height: auto;
-        } */
-
         h1 {
             color: #fff;
             margin: 0;
@@ -68,8 +63,6 @@
 
         }
 
-
-
         .btn-city-region {
             width: 70px;
             height: 50px;
@@ -94,8 +87,6 @@
         .checkbox-btn:checked+label>.btn-city-region {
             background-image: linear-gradient(rgb(115, 238, 115), rgb(78, 153, 245));
         }
-
-
 
         .card-region {
             margin: 0 auto;
@@ -232,35 +223,11 @@
             <label for="btn5">
                 <div class="btn-city-region">外島</div>
             </label>
-
-
-
-
-            <!-- <button class="btn-city-region">北部</button>
-            <button class="btn-city-region">中部</button>
-            <button class="btn-city-region">南部</button>
-            <button class="btn-city-region">東部</button>
-            <button class="btn-city-region">外島</button> -->
-
         </div>
 
     </nav>
     <div class="card-region"></div>
     <script>
-
-        // // 1.
-        // // 取得資料網址 資料位址 json格式 陣列裡面放物件
-        // fetch('https://datacenter.taichung.gov.tw/Swagger/OpenData/f116d1db-56f7-4984-bad8-c82e383765c0?limit=1000')
-        //     //不能有分號，因為會停止，就收不到資料
-        //     .then(function (response) { //對方要回應給我
-        //         //取得後 使用json格式解析的資料(有層次) 回傳資料
-        //         return response.json();
-        //     })
-        //     .then(function (result) { // 我接收資料
-
-        //         console.log(result);
-        //         //印出
-        //     });
         const btnCityRegion = document.querySelectorAll('.btn-city-region');
         console.log(btnCityRegion);
         const checkBoxBtn = document.querySelectorAll('.checkbox-btn');
@@ -299,9 +266,7 @@
         function organizationData(data) {
             // 我宣告 locations 的值是data裡面的records之中的location 我取到的是陣列(array)中的物件(object)
             // 類陣列=location=array
-            const locationAll = data.records.location;
-            // console.log(locationAll);
-            //function名稱？                       
+            const locationAll = data.records.location;                      
             locationAll.forEach(function (location, index) {
                 //  why location? loaction = ? 這個function
                 let locationName = location.locationName;
@@ -309,17 +274,13 @@
                 let startTime = loc.startTime;
                 let endTime = loc.endTime;
                 let wx = loc.parameter.parameterName;
-                // console.log(location);
-
                 let pop = location.weatherElement[1].time[1].parameter.parameterName;
-
                 let minT = location.weatherElement[2].time[1].parameter.parameterName;
                 let ci = location.weatherElement[3].time[1].parameter.parameterName;
                 let maxT = location.weatherElement[4].time[1].parameter.parameterName;
                 //key=程式名稱 鍵 鍵值
                 // console.log(ci_wE3_t0_par);
                 //在陣列中加物件，定他的key
-
                 orgData[locationName] = {
                     'wxCondition': wx,
                     'startTime': startTime,
@@ -358,19 +319,13 @@
                             最高溫：${cityData.max}度C<br>
                         </div>
                     </div>`
-
-
-            })
-        }
+            });
+        };
         const selectedBtn = null;
         btnCityRegion.forEach(function (btn, index) {
             btn.addEventListener('click', function () {
                 nowCityAll = CityAll[index];
                 arrange_cityAll();
-                // if (btn == null) {
-                //     btnCityRegion[index].classList.remove('checked')
-                // }
-                // btnCityRegion[index].classList.add('checked')
             });
         });
     </script>
