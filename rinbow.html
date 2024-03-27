@@ -188,7 +188,8 @@
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet">
 </head>
 
@@ -241,7 +242,7 @@
                 ['澎湖縣', '金門縣', '連江縣'],
             ]
         let nowCityAll = CityAll[0];
-        let url = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWA-F90973FA-EC80-479F-95C8-AA521B09E106';
+        let url = 'https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWA-F90973FA-EC80-479F-95C8-AA521B09E106';
         // 異步處理資料(非同步＝等你做完我在去做，) 不等你做完就去做，平行執行 
         fetch(url)
             //不能有分號，因為會停止，就收不到資料
@@ -263,7 +264,7 @@
         function organizationData(data) {
             // 我宣告 locations 的值是data裡面的records之中的location 我取到的是陣列(array)中的物件(object)
             // 類陣列=location=array
-            const locationAll = data.records.location;                      
+            const locationAll = data.records.location;
             locationAll.forEach(function (location, index) {
                 //  why location? loaction = ? 這個function
                 let locationName = location.locationName;
